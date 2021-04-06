@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+	<title>Simple jQuery Hex Grid widget for game prototyping</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="keywords" content="jquery opensource hexgrid hex grid" />
+    <meta name="description" content="A simple jQuery Hex grid Widget, implemented using SVG, for prototyping hex-grid based games." />
+		<script src="https://code.jquery.com/jquery-2.1.4.min.js" ></script>
+    <script src="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
+
+<script src="hexgridwidget.js" ></script>
+		
+		<style type="text/css">
+svg {}
+.hexfield {
+  fill: transparent;
+  stroke: yellowgreen;
+  stroke-width: 1;
+}
+.hexfield:focus {
+  outline:none;
+}
+.hexfield:hover {
+  fill: green;
+}
+.hexfield:active {
+  fill: red;
+  outline: none;
+}
+.hexfield.clicked{
+
+}
+</style>
+  </head>
+<body>
+
+<div class="container">
+  <div class="hero-unit">
+
+			<h1>The Grid<br/> <small>
+				Jede Koordinate. Jeder Ort. </small>
+		</h1>
+	</div>
+	<div class="row">
+		<div class="span6" style="text-align:left">
+			<div id="container"> </div>
+
+		</div>
+			
+		<hr/>
+	</div>
+
+
+<div class="row">
+
+	</div>
+</div>
+
+<script>
+<!-- main initialisation -->
+var rebuild = function () {
+	$('#container').css('background-image', 'url( ./map.png )');
+	$(this).css({backgroundColor: 'red'});
+  var
+    radius = 35, 
+    columns = 60, 
+    rows = 60, 
+    cssClass = 'hexfield';
+
+  $('#container').empty().hexGridWidget(radius, columns, rows, cssClass).on('hexclick', function (e) { 
+     $('#logger').text('clicked [' + e.column + ',' + e.row + '] hex with center at [' + e.center.x + ',' + e.center.y + '] px');
+	 var col = e.column;
+	 var row = e.row;
+	 if (e.column < 10)
+		col = "0"+e.column;
+	 if (e.row < 10)
+		row = "0"+e.row;
+	  window.open("https://westmarches.at/koordinate/"+col+"-"+row);
+  });
+  $('#container .hexfield').click(function () {
+    this.classList.toggle('clicked');
+  });
+};
+$('#rebuild').click(rebuild);
+rebuild();
+</script>
+
+  </body>
+</html>
