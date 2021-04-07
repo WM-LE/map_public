@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 
-	<title>Simple jQuery Hex Grid widget for game prototyping</title>
+	<title>Westmarches Spielerkarte</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="keywords" content="jquery opensource hexgrid hex grid" />
     <meta name="description" content="A simple jQuery Hex grid Widget, implemented using SVG, for prototyping hex-grid based games." />
@@ -16,14 +16,15 @@
 svg {}
 .hexfield {
   fill: transparent;
-  stroke: yellowgreen;
+  stroke: 746969;
   stroke-width: 1;
 }
 .hexfield:focus {
   outline:none;
 }
 .hexfield:hover {
-  fill: green;
+  fill:white ;
+  fill-opacity:0.4;
 }
 .hexfield:active {
   fill: red;
@@ -61,10 +62,10 @@ svg {}
 <script>
 <!-- main initialisation -->
 var rebuild = function () {
-	$('#container').css('background-image', 'url( ./map.png )');
+	$('#container').css('background-image', 'url( ./map_test2.png )');
 	$(this).css({backgroundColor: 'red'});
   var
-    radius = 35, 
+    radius = 17.5, 
     columns = 60, 
     rows = 60, 
     cssClass = 'hexfield';
