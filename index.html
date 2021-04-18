@@ -78,7 +78,7 @@ var zoom = 1;
   }); 
 
   <!-- hexgrid initialisation -->
-  
+
 var rebuild = function () {
 	$('#container').css('background-image', 'url( ./map_revision.png )');
 	$(this).css({backgroundColor: 'red'});
@@ -96,7 +96,9 @@ var rebuild = function () {
 		col = "0"+e.column;
 	 if (e.row < 10)
 		row = "0"+e.row;
-	  window.open("https://westmarches.at/koordinate/"+col+"-"+row);
+    //window.open("https://westmarches.at/koordinate/"+col+"-"+row);
+    
+    window.open("https://youtu.be/dQw4w9WgXcQ");
   });
   $('#container .hexfield').click(function () {
     this.classList.toggle('clicked');
