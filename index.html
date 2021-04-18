@@ -11,7 +11,7 @@
     <script src="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
 
 <script src="hexgridwidget.js" ></script>
-		
+
 		<style type="text/css">
 svg {}
 .hexfield {
@@ -33,20 +33,51 @@ svg {}
 .hexfield.clicked{
 
 }
+
+
+* {box-sizing: border-box;}
+
+.container {
+  position: relative;
+  transform: scale(1);
+  transform-origin: 0% 0% 0px;
+  display: inline-block;
+  text-align: center;
+
+}
+
+.header_container {
+  display: inline-block;
+  position: relative;
+
+}
+
+
+
 </style>
+
+<div class="header_container">
+<h1>Westmarches Spielerkarte<br/> <small></h1>
+			<button type="button" id="zoom_reset">Reset Zoom</button> 
+			<button type="button" id="zoom_plus">Zoom(+)</button> 
+			<button type="button" id="zoom_minus">Zoom(-)</button>		
+</div>
+
   </head>
 <body>
 
-<div class="container">
-  <div class="hero-unit">
 
-			<h1>The Grid<br/> <small>
-				Jede Koordinate. Jeder Ort. </small>
-		</h1>
-	</div>
+
+<div class="container">
+
+	
+
+	
 	<div class="row">
 		<div class="span6" style="text-align:left">
-			<div id="container"> </div>
+			<div id="container"> 
+			<!-- <img src="./map_revision.png" alt="" /> -->
+			</div>
 
 		</div>
 			
@@ -60,9 +91,30 @@ svg {}
 </div>
 
 <script>
+
+var zoom = 1;
+
+  document.getElementById("zoom_reset").addEventListener("click", function() {
+	zoom = 1;
+    document.getElementById("container").style.transform = "scale(1)";
+	console.log(zoom);
+  }); 
+  
+  document.getElementById("zoom_plus").addEventListener("click", function() {
+	zoom += 0.25;
+    document.getElementById("container").style.transform = "scale("+zoom+")";
+	console.log(zoom);
+  }); 
+  
+  document.getElementById("zoom_minus").addEventListener("click", function() {
+	zoom -= 0.25;
+    document.getElementById("container").style.transform = "scale("+zoom+")";
+	console.log(zoom);
+  }); 
+
 <!-- main initialisation -->
 var rebuild = function () {
-	$('#container').css('background-image', 'url( ./map_test2.png )');
+	$('#container').css('background-image', 'url( ./map_revision.png )');
 	$(this).css({backgroundColor: 'red'});
   var
     radius = 17.5, 
