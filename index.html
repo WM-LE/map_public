@@ -46,9 +46,11 @@ svg {}
 
 <div class="header_container">
 <h1>Westmarches Spielerkarte<br/> <small></h1>
+<!--
 			<button type="button" id="zoom_reset">Reset Zoom</button> 
 			<button type="button" id="zoom_plus">Zoom(+)</button> 
 			<button type="button" id="zoom_minus">Zoom(-)</button>		
+-->
 </div>
 
 			<div id="container"> </div>
@@ -56,7 +58,7 @@ svg {}
 <script>
 
 <!-- map zoom -->
-
+/*
 var zoom = 1;
 
   document.getElementById("zoom_reset").addEventListener("click", function() {
@@ -76,7 +78,7 @@ var zoom = 1;
     document.getElementById("container").style.transform = "scale("+zoom+")";
 	console.log(zoom);
   }); 
-
+*/
   <!-- hexgrid initialisation -->
 
 var rebuild = function () {
@@ -96,9 +98,13 @@ var rebuild = function () {
 		col = "0"+e.column;
 	 if (e.row < 10)
 		row = "0"+e.row;
-    //window.open("https://westmarches.at/koordinate/"+col+"-"+row);
+
+	 alert("Koordinate:("+col+"-"+row+")");
     
-    window.open("https://youtu.be/dQw4w9WgXcQ");
+    /*if (confirm("Notizen für ("+col+"-"+row+") öffnen?")) {
+		window.open("https://westmarches.at/koordinate/"+col+"-"+row);
+		} else {}
+	*/
   });
   $('#container .hexfield').click(function () {
     this.classList.toggle('clicked');
