@@ -15,7 +15,17 @@
 		<!--CSS-->
 
 		<style type="text/css">
+* { margin: 0; padding: 0;}
 svg {}
+
+.toolbar{
+display:block; 
+}
+
+#container{
+  overflow: scroll;
+  display:block; 
+}
 .hexfield {
   fill: transparent;
   stroke: 746969;
@@ -39,13 +49,11 @@ svg {}
 </style>
 
 </head>
+  <!--Main Programm begins-->							 
 <body>
 
-
-  <!--Main Programm begins-->
-
-<div class="header_container">
-<h1>Westmarches Spielerkarte<br/> <small></h1>
+	<div class="header_container">
+		<h1>Westmarches Spielerkarte<br/> <small></h1>
 <!--
 			<button type="button" id="zoom_reset">Reset Zoom</button> 
 			<button type="button" id="zoom_plus">Zoom(+)</button> 
@@ -53,32 +61,11 @@ svg {}
 -->
 </div>
 
-			<div id="container"> </div>
+<frameset>
+			<div id="container" width = "100%" height = "100%" style= "background-repeat:no-repeat;  background-attachment:local; "  > </div> 
+</frameset>
 
 <script>
-
-<!-- map zoom -->
-/*
-var zoom = 1;
-
-  document.getElementById("zoom_reset").addEventListener("click", function() {
-	zoom = 1;
-    document.getElementById("container").style.transform = "scale(1)";
-	console.log(zoom);
-  }); 
-  
-  document.getElementById("zoom_plus").addEventListener("click", function() {
-	zoom += 0.25;
-    document.getElementById("container").style.transform = "scale("+zoom+")";
-	console.log(zoom);
-  }); 
-  
-  document.getElementById("zoom_minus").addEventListener("click", function() {
-	zoom -= 0.25;
-    document.getElementById("container").style.transform = "scale("+zoom+")";
-	console.log(zoom);
-  }); 
-*/
   <!-- hexgrid initialisation -->
 
 var rebuild = function () {
