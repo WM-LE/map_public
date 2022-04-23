@@ -1,5 +1,5 @@
 /*global $, document*/
-$.fn.hexGridWidget = function (radius, columns, rows, cssClass) {
+$.fn.hexGridWidget = function (radius, height_mod, columns, rows, cssClass) {
 	'use strict';
 	var createSVG = function (tag) {
 		return $(document.createElementNS('http://www.w3.org/2000/svg', tag || 'svg'));
@@ -10,7 +10,7 @@ $.fn.hexGridWidget = function (radius, columns, rows, cssClass) {
 					var hex = $(this);
 					element.trigger($.Event('hexclick', hex.data()));
 				},
-				height = Math.sqrt(3) / 2.019 * radius,
+				height = Math.sqrt(3) / 2.019 * radius * height_mod,
 				svgParent = createSVG('svg').attr('tabindex', 1).appendTo(element).css({
 					width: (1.5 * columns  +  0.5) * radius,
 					height: (2 * rows  +  1) * height
